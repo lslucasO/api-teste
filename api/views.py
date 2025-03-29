@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def product_api_view(request):
+    return render(request, )
+
