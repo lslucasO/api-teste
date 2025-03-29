@@ -15,7 +15,11 @@ class Product(models.Model):
     description = models.TextField(max_length=800)
     price = models.FloatField()
     
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    cover = models.ImageField(
+        upload_to='products/covers/%Y/%m/%d/', blank=True, default=''
+    )
+    
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, default=None)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
