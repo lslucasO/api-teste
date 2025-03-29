@@ -5,4 +5,8 @@ from products.models import Product
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['name', 'description', 'price', 'category', 'cover']
+        fields = ['id', 'name', 'description', 'price', 'category', 'cover']
+        
+    category = serializers.StringRelatedField(
+        read_only=True,
+    )
