@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from rest_framework.generics import ListAPIView
+from products.models import Product
+from .serializers import ProductSerializer
 
 
-def product_api_view(request):
-    return render(request, )
 
+class ProductListView(ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
